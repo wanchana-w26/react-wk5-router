@@ -18,8 +18,8 @@ function Home() {
         <Link to="/services" style={{ background: '#4f46e5', color: 'white', padding: '12px 24px', borderRadius: '10px', textDecoration: 'none', fontWeight: 'bold', boxShadow: '0 4px 6px rgba(79, 70, 229, 0.2)' }}>
           ดูบริการของเรา
         </Link>
-        <Link to="/about" style={{ background: 'white', color: '#4a5568', padding: '12px 24px', borderRadius: '10px', textDecoration: 'none', fontWeight: 'bold', border: '1px solid #cbd5e0' }}>
-          รู้จักเรามากขึ้น
+        <Link to="/contact" style={{ background: 'white', color: '#4a5568', padding: '12px 24px', borderRadius: '10px', textDecoration: 'none', fontWeight: 'bold', border: '1px solid #cbd5e0' }}>
+          ติดต่อโปรเจกต์ใหม่
         </Link>
       </div>
     </div>
@@ -90,14 +90,64 @@ function Services() {
 }
 
 // ==========================================
-// 4. หน้าไม่พบข้อมูล (NotFound Page)
+// 4. หน้าติดต่อเรา (Contact Page - หน้าที่ 4 ที่เพิ่มใหม่)
+// ==========================================
+function Contact() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("ส่งข้อความสำเร็จ! ทีมงานจะติดต่อกลับโดยเร็วที่สุด");
+  };
+
+  return (
+    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '20px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <h1 style={{ fontSize: '2rem', color: '#1a202c', margin: '0 0 10px 0' }}>ติดต่อเรา</h1>
+        <p style={{ color: '#718096', margin: 0 }}>มีโปรเจกต์ในใจหรือต้องการคำปรึกษา? ส่งข้อความหาเราได้เลย!</p>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+        {/* ฝั่งข้อมูลการติดต่อ */}
+        <div style={{ background: '#4f46e5', color: 'white', padding: '40px', borderRadius: '20px', boxShadow: '0 10px 20px rgba(79, 70, 229, 0.15)' }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '25px', color: '#ffffff' }}>ข้อมูลการติดต่อ</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <p style={{ margin: 0, fontSize: '1rem' }}>📍 123 อาคารซอฟต์แวร์พลาซ่า ชั้น 5 กรุงเทพฯ 10110</p>
+            <p style={{ margin: 0, fontSize: '1rem' }}>📞 02-123-4567</p>
+            <p style={{ margin: 0, fontSize: '1rem' }}>✉️ contact@techvibestudio.com</p>
+            <p style={{ margin: 0, fontSize: '1rem' }}>⏰ จันทร์ - ศุกร์ | 09:00 - 18:00 น.</p>
+          </div>
+        </div>
+
+        {/* ฝั่งฟอร์มส่งข้อความ */}
+        <form onSubmit={handleSubmit} style={{ background: 'white', padding: '30px', borderRadius: '20px', border: '1px solid #edf2f7', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          <div>
+            <label style={{ display: 'block', marginBottom: '5px', fontWeight: '500', fontSize: '0.9rem' }}>ชื่อของคุณ</label>
+            <input type="text" placeholder="สมชาย ใจดี" required style={{ width: '100%', padding: '10px 15px', borderRadius: '8px', border: '1px solid #cbd5e0', boxSizing: 'border-box' }} />
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '5px', fontWeight: '500', fontSize: '0.9rem' }}>อีเมล</label>
+            <input type="email" placeholder="somchai@email.com" required style={{ width: '100%', padding: '10px 15px', borderRadius: '8px', border: '1px solid #cbd5e0', boxSizing: 'border-box' }} />
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '5px', fontWeight: '500', fontSize: '0.9rem' }}>รายละเอียดโปรเจกต์</label>
+            <textarea rows="4" placeholder="พิมพ์ข้อความของคุณที่นี่..." required style={{ width: '100%', padding: '10px 15px', borderRadius: '8px', border: '1px solid #cbd5e0', boxSizing: 'border-box', resize: 'none' }}></textarea>
+          </div>
+          <button type="submit" style={{ background: '#4f46e5', color: 'white', padding: '12px', borderRadius: '8px', border: 'none', fontWeight: 'bold', cursor: 'pointer', marginTop: '10px', boxShadow: '0 4px 6px rgba(79, 70, 229, 0.2)' }}>
+            ส่งข้อความ
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// 5. หน้าไม่พบข้อมูล (NotFound Page)
 // ==========================================
 function NotFound() {
   return (
     <div style={{ textAlign: 'center', padding: '50px' }}>
       <h1 style={{ fontSize: '4rem', color: '#e53e3e', margin: 0 }}>404</h1>
       <p style={{ fontSize: '1.2rem', color: '#4a5568' }}>ไม่พบหน้าเว็บที่คุณต้องการ</p>
-      {/* แก้ไขแท็กปิดตรงนี้เรียบร้อยแล้วครับ */}
       <Link to="/" style={{ color: '#4f46e5', textDecoration: 'none', fontWeight: 'bold' }}>กลับหน้าแรก</Link>
     </div>
   );
@@ -118,6 +168,7 @@ export default function App() {
             <Link to="/" style={{ textDecoration: 'none', color: '#4a5568', fontWeight: '500' }}>หน้าแรก</Link>
             <Link to="/about" style={{ textDecoration: 'none', color: '#4a5568', fontWeight: '500' }}>เกี่ยวกับเรา</Link>
             <Link to="/services" style={{ textDecoration: 'none', color: '#4a5568', fontWeight: '500' }}>บริการของเรา</Link>
+            <Link to="/contact" style={{ textDecoration: 'none', color: '#4a5568', fontWeight: '500' }}>ติดต่อเรา</Link> {/* เมนูหน้าที่ 4 */}
           </div>
         </div>
       </nav>
@@ -128,6 +179,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} /> {/* Route หน้าที่ 4 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
@@ -139,4 +191,4 @@ export default function App() {
 
     </div>
   );
-}
+} 
